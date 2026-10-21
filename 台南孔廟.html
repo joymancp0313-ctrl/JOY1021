@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="以復古紙本風格認識臺南孔子廟的歷史脈絡、建築特色與文化意義。">
+<title>臺南孔子廟｜全臺首學・紙上古蹟誌</title>
+<style>
+/* ===== 台南孔子廟：復古歷史配色 ===== */
+:root {
+  --temple-bg: #F2E8D5;
+  --temple-paper: #E8D9BF;
+  --temple-border: #D8C4A5;
+  --temple-brown: #79513A;
+  --temple-text: #4A3328;
+  --temple-red: #8E3028;
+  --temple-gold: #C5A66A;
+  --paper-light: #fbf5e9;
+  --shadow: 0 16px 40px rgba(74,51,40,.12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; color: var(--temple-text); background: var(--temple-bg); font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif; line-height: 1.8; overflow-x: hidden; }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:10; opacity:.18; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E"); mix-blend-mode:multiply; }
+a { color:var(--temple-text); text-decoration:none; transition:color .25s; }
+a:hover,a:focus { color:var(--temple-red); }
+button { font:inherit; cursor:pointer; }
+img { display:block; max-width:100%; }
+::selection { background:var(--temple-red); color:var(--paper-light); }
+.topline { height:5px; background:var(--temple-red); }
+.nav-wrap { position:sticky; top:0; z-index:20; background:rgba(242,232,213,.94); border-bottom:1px solid var(--temple-border); backdrop-filter:blur(12px); }
+.nav { max-width:1200px; margin:auto; padding:12px 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand { display:flex; align-items:center; gap:12px; font-size:15px; font-weight:700; letter-spacing:.12em; white-space:nowrap; }
+.seal { width:38px; height:38px; border:2px solid var(--temple-red); color:var(--temple-red); display:grid; place-items:center; font-size:12px; line-height:1.1; text-align:center; transform:rotate(-5deg); outline:1px solid var(--temple-red); outline-offset:3px; }
+.nav-links { display:flex; align-items:center; gap:24px; font-size:13px; letter-spacing:.08em; }
+.nav-links a { padding:7px 0; border-bottom:1px solid transparent; }
+.nav-links a:hover { border-color:var(--temple-red); }
+.menu-toggle { display:none; border:1px solid var(--temple-border); background:transparent; color:var(--temple-text); padding:6px 10px; }
+.hero { min-height:650px; position:relative; display:grid; grid-template-columns: .9fr 1.1fr; max-width:1400px; margin:auto; padding:58px clamp(24px,6vw,88px) 74px; gap:46px; align-items:center; }
+.hero-copy { position:relative; z-index:2; padding:20px 0; }
+.eyebrow { color:var(--temple-red); font-size:12px; letter-spacing:.28em; display:flex; align-items:center; gap:12px; }
+.eyebrow::before { content:""; width:32px; height:1px; background:var(--temple-red); }
+h1,h2,h3,p { margin-top:0; }
+h1 { font-weight:600; font-size:clamp(44px,6.3vw,86px); letter-spacing:.1em; line-height:1.22; margin:24px 0 20px; }
+h1 span { display:block; color:var(--temple-red); font-size:.43em; letter-spacing:.22em; margin-top:20px; }
+.hero-intro { max-width:440px; font-size:16px; color:var(--temple-brown); }
+.hero-meta { display:flex; gap:18px; align-items:center; margin-top:30px; flex-wrap:wrap; }
+.primary-btn,.outline-btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:12px 20px; font-size:13px; letter-spacing:.1em; transition:transform .25s, background .25s, color .25s; }
+.primary-btn { color:var(--paper-light); background:var(--temple-red); border:1px solid var(--temple-red); }
+.primary-btn:hover { color:white; background:var(--temple-brown); transform:translateY(-2px); }
+.outline-btn { border:1px solid var(--temple-border); background:transparent; }
+.outline-btn:hover { border-color:var(--temple-red); color:var(--temple-red); transform:translateY(-2px); }
+.hero-visual { position:relative; padding:14px; background:var(--paper-light); box-shadow:var(--shadow); transform:rotate(1.2deg); }
+.hero-visual::before { content:"臺南・府城"; position:absolute; top:28px; left:28px; z-index:2; background:var(--temple-red); color:#fff4e4; padding:7px 10px; font-size:11px; letter-spacing:.15em; writing-mode:vertical-rl; }
+.hero-visual img { width:100%; height:470px; object-fit:cover; filter:sepia(.12) saturate(.82); }
+.photo-caption { display:flex; justify-content:space-between; gap:10px; padding:12px 5px 2px; color:var(--temple-brown); font-size:11px; letter-spacing:.08em; }
+.vertical-note { position:absolute; right:20px; top:50%; writing-mode:vertical-rl; font-size:12px; letter-spacing:.2em; color:var(--temple-brown); }
+.paper-edge { height:28px; background:linear-gradient(135deg,transparent 10px,var(--temple-paper) 0) 0 0/20px 28px,linear-gradient(225deg,transparent 10px,var(--temple-paper) 0) 0 0/20px 28px; opacity:.9; }
+.section { padding:94px 24px; position:relative; }
+.section-inner { max-width:1100px; margin:auto; }
+.section-kicker { color:var(--temple-red); font-size:12px; letter-spacing:.24em; margin-bottom:10px; }
+.section-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:36px; }
+h2 { font-size:clamp(30px,4vw,48px); line-height:1.35; letter-spacing:.08em; margin-bottom:0; font-weight:600; }
+.section-heading p { max-width:420px; color:var(--temple-brown); font-size:14px; margin-bottom:4px; }
+.history { background:var(--temple-paper); border-top:1px solid var(--temple-border); border-bottom:1px solid var(--temple-border); }
+.history-layout { display:grid; grid-template-columns: .72fr 1.28fr; gap:60px; }
+.history-intro { position:sticky; top:115px; align-self:start; }
+.history-intro .large-number { font-size:90px; line-height:1; color:var(--temple-red); opacity:.9; margin:28px 0 10px; font-style:italic; }
+.history-intro p { color:var(--temple-brown); font-size:14px; }
+.timeline { border-left:1px solid var(--temple-gold); padding-left:30px; }
+.timeline-item { position:relative; padding:0 0 28px; }
+.timeline-item::before { content:""; position:absolute; width:11px; height:11px; border-radius:50%; background:var(--temple-red); border:3px solid var(--temple-paper); outline:1px solid var(--temple-red); left:-36px; top:8px; }
+.timeline-button { width:100%; display:flex; align-items:center; justify-content:space-between; text-align:left; border:0; background:transparent; padding:8px 0 12px; color:var(--temple-text); border-bottom:1px solid rgba(121,81,58,.25); }
+.timeline-button strong { font-size:20px; font-weight:600; letter-spacing:.05em; }
+.timeline-button span { color:var(--temple-red); font-size:22px; transition:transform .25s; }
+.timeline-item.open .timeline-button span { transform:rotate(45deg); }
+.timeline-detail { display:none; padding:14px 0 0; color:var(--temple-brown); font-size:14px; }
+.timeline-item.open .timeline-detail { display:block; animation:fadeUp .35s ease both; }
+.note { margin-top:22px; padding:14px 16px; border-left:3px solid var(--temple-gold); background:rgba(251,245,233,.55); font-size:12px; color:var(--temple-brown); }
+.features { background:var(--temple-bg); }
+.feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.feature-card { position:relative; background:var(--paper-light); padding:10px; box-shadow:0 7px 20px rgba(74,51,40,.08); border:1px solid rgba(216,196,165,.75); transition:transform .3s, box-shadow .3s; }
+.feature-card:hover { transform:translateY(-7px) rotate(-.3deg); box-shadow:var(--shadow); }
+.feature-card img { width:100%; height:210px; object-fit:cover; filter:sepia(.14) saturate(.82); }
+.feature-content { padding:18px 14px 14px; }
+.feature-index { color:var(--temple-red); font-size:11px; letter-spacing:.2em; }
+.feature-content h3 { font-size:21px; margin:8px 0; }
+.feature-content p { font-size:13px; color:var(--temple-brown); margin-bottom:14px; }
+.details-toggle { border:0; border-bottom:1px solid var(--temple-gold); background:none; color:var(--temple-red); padding:3px 0; font-size:12px; letter-spacing:.08em; }
+.extra-detail { display:none; font-size:13px; padding-top:12px; color:var(--temple-text); }
+.feature-card.expanded .extra-detail { display:block; animation:fadeUp .3s ease both; }
+.feature-card.expanded .details-toggle::after { content:" −"; }
+.details-toggle::after { content:" +"; }
+.culture { background:#e6d5b8; position:relative; overflow:hidden; }
+.culture::after { content:"禮"; position:absolute; right:4vw; bottom:-100px; font-size:360px; line-height:1; color:rgba(142,48,40,.055); pointer-events:none; }
+.culture-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+.culture-image { padding:12px; background:var(--paper-light); box-shadow:var(--shadow); transform:rotate(-1deg); }
+.culture-image img { height:390px; width:100%; object-fit:cover; filter:sepia(.16) saturate(.8); }
+.culture-copy { position:relative; z-index:1; }
+.culture-copy h2 { margin-bottom:20px; }
+.culture-copy p { color:var(--temple-brown); font-size:15px; }
+.quote { margin-top:26px; padding:20px 24px; border-top:1px solid var(--temple-gold); border-bottom:1px solid var(--temple-gold); font-size:19px; letter-spacing:.08em; color:var(--temple-red); }
+.gallery { background:var(--paper-light); }
+.gallery-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr; grid-template-rows:210px 210px; gap:14px; }
+.gallery-item { position:relative; overflow:hidden; background:var(--temple-paper); padding:6px; border:1px solid var(--temple-border); cursor:zoom-in; }
+.gallery-item:first-child { grid-row:span 2; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .55s, filter .55s; filter:sepia(.12) saturate(.82); }
+.gallery-item:hover img { transform:scale(1.06); filter:sepia(0) saturate(1); }
+.gallery-item figcaption { position:absolute; left:6px; right:6px; bottom:6px; padding:30px 12px 10px; color:#fff8eb; font-size:12px; background:linear-gradient(transparent,rgba(45,29,20,.75)); opacity:.95; }
+.visit { background:var(--temple-bg); }
+.visit-card { display:grid; grid-template-columns:1fr 1fr; background:var(--paper-light); border:1px solid var(--temple-border); box-shadow:var(--shadow); }
+.visit-info { padding:34px; }
+.visit-info h3 { font-size:24px; margin-bottom:18px; }
+.visit-info p { color:var(--temple-brown); font-size:14px; }
+.visit-map { min-height:350px; border:0; width:100%; height:100%; filter:sepia(.2); }
+.info-line { display:grid; grid-template-columns:86px 1fr; gap:12px; padding:11px 0; border-bottom:1px solid var(--temple-border); font-size:13px; }
+.info-line strong { color:var(--temple-red); font-weight:600; }
+.footer { background:var(--temple-text); color:var(--temple-bg); padding:36px 24px; }
+.footer-inner { max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.footer .seal { color:var(--temple-gold); border-color:var(--temple-gold); outline-color:var(--temple-gold); }
+.footer small { color:#d8c4a5; font-size:11px; }
+.back-top { position:fixed; right:20px; bottom:20px; z-index:15; width:42px; height:42px; border:1px solid var(--temple-red); color:var(--temple-red); background:rgba(242,232,213,.9); opacity:0; pointer-events:none; transition:opacity .25s; }
+.back-top.visible { opacity:1; pointer-events:auto; }
+.lightbox { position:fixed; inset:0; z-index:50; background:rgba(39,27,20,.88); display:none; align-items:center; justify-content:center; padding:30px; }
+.lightbox.open { display:flex; }
+.lightbox img { max-width:min(100%,1000px); max-height:82vh; object-fit:contain; border:10px solid var(--paper-light); box-shadow:0 20px 60px #1b120d; }
+.lightbox-close { position:absolute; top:20px; right:24px; color:#fff8eb; background:transparent; border:1px solid #fff8eb; padding:8px 13px; }
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+@keyframes fadeUp { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:translateY(0)} }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } .reveal { opacity:1; transform:none; } }
+@media (max-width:850px) { .hero { grid-template-columns:1fr; padding-top:35px; gap:28px; } .hero-copy { padding:10px 0 0; } .hero-visual img { height:380px; } .vertical-note { display:none; } .history-layout { grid-template-columns:1fr; gap:30px; } .history-intro { position:static; } .history-intro .large-number { font-size:64px; margin:12px 0; } .feature-grid { grid-template-columns:repeat(2,1fr); } .culture-grid { gap:28px; } .gallery-grid { grid-template-rows:170px 170px; } }
+@media (max-width:620px) { .nav { padding:10px 16px; } .menu-toggle { display:block; } .nav-links { display:none; position:absolute; left:0; right:0; top:100%; background:var(--temple-bg); border-bottom:1px solid var(--temple-border); padding:14px 22px 20px; flex-direction:column; align-items:flex-start; gap:8px; } .nav-links.open { display:flex; } .hero { padding:34px 20px 55px; } h1 { font-size:50px; } .hero-visual img { height:310px; } .section { padding:66px 20px; } .section-heading { display:block; } .section-heading p { margin-top:16px; } .feature-grid { grid-template-columns:1fr; } .feature-card img { height:230px; } .culture-grid { grid-template-columns:1fr; } .culture-image img { height:300px; } .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:200px 150px 150px; } .gallery-item:first-child { grid-column:span 2; grid-row:auto; } .visit-card { grid-template-columns:1fr; } .visit-map { min-height:300px; } .visit-info { padding:24px; } .footer-inner { align-items:flex-start; flex-direction:column; } }
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header class="nav-wrap">
+  <nav class="nav" aria-label="主導覽">
+    <a class="brand" href="#top"><span class="seal">全臺<br>首學</span><span>臺南孔子廟<br><small style="font-size:10px;font-weight:400;letter-spacing:.2em">TAINAN CONFUCIUS TEMPLE</small></span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="開啟導覽選單">目錄 ☰</button>
+    <div class="nav-links">
+      <a href="#history">歷史脈絡</a><a href="#features">建築特色</a><a href="#culture">文化意義</a><a href="#gallery">影像誌</a><a href="#visit">參觀資訊</a>
+    </div>
+  </nav>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="hero-copy reveal">
+    <div class="eyebrow">府城文化・古蹟手帖 NO.001</div>
+    <h1>臺南<br>孔子廟<span>全臺首學・文廟之始</span></h1>
+    <p class="hero-intro">沿著朱紅院牆走進府城的文脈。從一座祭祀孔子的廟宇，讀懂臺灣儒學教育的開端，以及數百年來延續至今的禮制與記憶。</p>
+    <div class="hero-meta"><a class="primary-btn" href="#history">翻開歷史 <span>↘</span></a><a class="outline-btn" href="#features">探索建築</a></div>
+  </div>
+  <div class="hero-visual reveal">
+    <img src="https://live.staticflickr.com/65535/2989116716_0f92d577ab_b.jpg" alt="臺南孔子廟古蹟景觀" onerror="this.onerror=null;this.src='https://image.cdn-eztravel.com.tw/PQF2tJ7sq_DQntEZrOGBg27fAsVJ30U8C1wC9bXcIVA/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L3BvaS90dy9UTk4vVGFpd2FuIENvbmZ1Y2lhbiBUZW1wbGUvc2h1dHRlcnN0b2NrXzMzNDU3OTQ1LmpwZw.jpg'">
+    <div class="photo-caption"><span>臺南・中西區</span><span>古蹟影像 / PLATE 01</span></div>
+  </div>
+  <div class="vertical-note">入廟循禮・入史尋根</div>
+</section>
+<div class="paper-edge"></div>
+<section class="section history" id="history">
+  <div class="section-inner history-layout">
+    <div class="history-intro reveal"><div class="section-kicker">01 / HISTORY</div><h2>在時間裡，<br>讀一座學宮。</h2><div class="large-number">1665</div><p>明鄭永曆十九年，臺灣府學與文廟在此建立。孔廟不只是祭祀場所，也象徵著教育制度與儒學文化在臺灣的扎根。</p><div class="note">點選右側年代，展開該時期的歷史摘要。</div></div>
+    <div class="timeline reveal">
+      <article class="timeline-item open"><button class="timeline-button" aria-expanded="true"><strong>1665｜明鄭時期・創建文廟</strong><span>＋</span></button><div class="timeline-detail">鄭成功之子鄭經採納陳永華建議，設立臺灣府學並興建孔廟，作為推展儒學教育的重要據點。臺南孔廟因此被視為臺灣最早建立的文廟與官學之一。</div></article>
+      <article class="timeline-item"><button class="timeline-button" aria-expanded="false"><strong>清代｜修建與制度延續</strong><span>＋</span></button><div class="timeline-detail">清代多次修繕、擴建，廟學格局逐漸發展。孔廟持續承擔祭孔、講學與地方文教象徵等角色，成為府城重要的文化中心。</div></article>
+      <article class="timeline-item"><button class="timeline-button" aria-expanded="false"><strong>日治時期｜保存與轉變</strong><span>＋</span></button><div class="timeline-detail">隨著教育制度與城市治理改變，孔廟的功能與周邊環境也經歷轉變。古蹟建築在不同時代的修復與保存，留下歷史層疊的痕跡。</div></article>
+      <article class="timeline-item"><button class="timeline-button" aria-expanded="false"><strong>現代｜古蹟與文化場域</strong><span>＋</span></button><div class="timeline-detail">今日的臺南孔廟是重要的文化資產與城市地標，持續透過祭孔典禮、文化活動與古蹟教育，讓傳統禮制與歷史記憶被重新理解。</div></article>
+    </div>
+  </div>
+</section>
+<section class="section features" id="features">
+  <div class="section-inner">
+    <div class="section-heading reveal"><div><div class="section-kicker">02 / ARCHITECTURE</div><h2>建築裡的秩序與美學</h2></div><p>從中軸配置到紅牆、屋脊與匾額，孔廟的空間不只供人觀看，也承載著尊師重道與禮制倫理。</p></div>
+    <div class="feature-grid">
+      <article class="feature-card reveal"><img src="https://followweiwei.com/wp-content/uploads/2024/08/S__99008526_0.jpg" alt="臺南孔子廟建築照片" loading="lazy"><div class="feature-content"><div class="feature-index">DETAIL 01</div><h3>大成殿</h3><p>孔廟的核心殿宇，是祭祀至聖先師孔子的主要場所。</p><button class="details-toggle" aria-expanded="false">閱讀建築筆記</button><div class="extra-detail">大成殿位於整體空間的重要位置，殿宇的莊重尺度、木構與祭祀陳設，共同營造出肅穆的儀式氛圍。</div></div></article>
+      <article class="feature-card reveal"><img src="https://image.cdn-eztravel.com.tw/PQF2tJ7sq_DQntEZrOGBg27fAsVJ30U8C1wC9bXcIVA/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L3BvaS90dy9UTk4vVGFpd2FuIENvbmZ1Y2lhbiBUZW1wbGUvc2h1dHRlcnN0b2NrXzMzNDU3OTQ1LmpwZw.jpg" alt="臺南孔子廟大成殿景觀" loading="lazy"><div class="feature-content"><div class="feature-index">DETAIL 02</div><h3>紅牆與院落</h3><p>沉穩的朱紅牆面與開闊庭院，形成鮮明而安靜的空間節奏。</p><button class="details-toggle" aria-expanded="false">閱讀建築筆記</button><div class="extra-detail">院落提供由外而內的行進層次，讓參觀者逐步進入祭祀空間。牆色、樹影與自然光，也構成孔廟最具辨識度的視覺印象。</div></div></article>
+      <article class="feature-card reveal"><img src="https://www.twtainan.net/content/images/attractions/17552/1920x1080_Filedata635593488485210998.jpg" alt="臺南孔廟屋脊與傳統建築細節" loading="lazy"><div class="feature-content"><div class="feature-index">DETAIL 03</div><h3>屋脊與木構</h3><p>傳統屋頂曲線、木構細節與裝飾工藝，展現古建築的比例之美。</p><button class="details-toggle" aria-expanded="false">閱讀建築筆記</button><div class="extra-detail">觀看傳統建築時，可以留意屋簷曲線、樑柱比例、彩繪與裝飾如何協調。這些細節不只是裝飾，也反映工藝傳承與時代審美。</div></div></article>
+    </div>
+  </div>
+</section>
+<section class="section culture" id="culture">
+  <div class="section-inner culture-grid">
+    <div class="culture-image reveal"><img src="https://www.twtainan.net/Image/90859/?r=1654750520383" alt="臺南孔子廟文化與建築景觀" loading="lazy"></div>
+    <div class="culture-copy reveal"><div class="section-kicker">03 / CULTURE</div><h2>不只是古蹟，<br>也是一種文化記憶。</h2><p>孔子廟的意義不止於建築本身。它代表著教育、禮儀與知識傳承的價值，也見證府城在不同政權與社會變遷之間，如何保留並重塑自己的文化認同。</p><p>祭孔典禮延續了傳統禮制的精神；而日常的參觀、學習與文化導覽，則讓古蹟不只是被保存的過去，也成為當代城市生活的一部分。</p><div class="quote">「入廟觀禮，循古知今。」<br><small style="font-size:11px;color:var(--temple-brown)">— 一場穿越府城歷史的閱讀</small></div></div>
+  </div>
+</section>
+<section class="section gallery" id="gallery">
+  <div class="section-inner">
+    <div class="section-heading reveal"><div><div class="section-kicker">04 / PHOTO ARCHIVE</div><h2>古蹟影像誌</h2></div><p>點選照片可放大觀看。像翻閱舊相簿一樣，從不同角度重新觀察孔廟。</p></div>
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal" tabindex="0"><img src="https://www.boncity.com/s/img/infos/41926_3.jpg?20180606091318" alt="臺南孔子廟古蹟影像" loading="lazy"><figcaption>PLATE 01 ／ 府城古蹟</figcaption></figure>
+      <figure class="gallery-item reveal" tabindex="0"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT15l0xKA1Xg61qDoAonvLA9Wt4vXkREDn0GDF8RqWciNsWwehDd-YUQDI&s=10" alt="臺南孔子廟建築影像" loading="lazy"><figcaption>PLATE 02 ／ 建築剪影</figcaption></figure>
+      <figure class="gallery-item reveal" tabindex="0"><img src="https://followweiwei.com/wp-content/uploads/2024/08/S__99008526_0.jpg" alt="孔廟建築與庭院" loading="lazy"><figcaption>PLATE 03 ／ 紅牆與庭院</figcaption></figure>
+      <figure class="gallery-item reveal" tabindex="0"><img src="https://www.twtainan.net/content/images/attractions/17552/1920x1080_Filedata635593488485210998.jpg" alt="孔廟傳統建築細節" loading="lazy"><figcaption>PLATE 04 ／ 傳統工藝</figcaption></figure>
+      <figure class="gallery-item reveal" tabindex="0"><img src="https://www.twtainan.net/Image/90859/?r=1654750520383" alt="臺南孔廟文化景觀" loading="lazy"><figcaption>PLATE 05 ／ 文化風景</figcaption></figure>
+    </div>
+  </div>
+</section>
+<section class="section visit" id="visit">
+  <div class="section-inner">
+    <div class="section-heading reveal"><div><div class="section-kicker">05 / VISIT</div><h2>親自走進府城文脈</h2></div><p>把這份紙上導覽，延伸成一次實際的古蹟散步。</p></div>
+    <div class="visit-card reveal">
+      <div class="visit-info"><h3>臺南孔子廟</h3><p>位於臺南市中西區，是臺灣歷史悠久的文廟之一。建議參觀前先確認最新開放時間與活動公告。</p>
+        <div class="info-line"><strong>地址</strong><span>臺南市中西區南門路2號</span></div>
+        <div class="info-line"><strong>建議看點</strong><span>大成殿、泮宮石坊、明倫堂、紅牆院落</span></div>
+        <div class="info-line"><strong>參觀提醒</strong><span>尊重祭祀空間，並依現場公告遵守拍攝規範。</span></div>
+        <p style="margin-top:22px"><a class="primary-btn" href="https://www.google.com/maps/search/?api=1&query=台南孔子廟" target="_blank" rel="noopener">開啟 Google 地圖 ↗</a></p>
+      </div>
+      <iframe class="visit-map" title="臺南孔子廟地圖" loading="lazy" src="https://maps.google.com/maps?q=%E8%87%BA%E5%8D%97%E5%AD%94%E5%AD%90%E5%BB%9F&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="footer-inner"><a class="brand" href="#top" style="color:var(--temple-bg)"><span class="seal">全臺<br>首學</span><span>臺南孔子廟<br><small>紙上古蹟誌</small></span></a><small>以歷史為線索，以紙本美學重新閱讀府城文化。<br>本網站為文化介紹與視覺設計練習，參觀資訊請以官方公告為準。</small></div></footer>
+<button class="back-top" aria-label="回到頁首" title="回到頁首">↑</button>
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="放大圖片"><button class="lightbox-close">關閉 ✕</button><img src="" alt="放大檢視"></div>
+<script>
+// 手機導覽選單
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle.addEventListener('click', () => {
+  const opened = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(opened));
+});
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false');
+}));
+// 歷史時間軸：一次展開一項
+const timelineItems = [...document.querySelectorAll('.timeline-item')];
+timelineItems.forEach(item => {
+  const btn = item.querySelector('.timeline-button');
+  btn.addEventListener('click', () => {
+    const shouldOpen = !item.classList.contains('open');
+    timelineItems.forEach(other => {
+      other.classList.remove('open'); other.querySelector('.timeline-button').setAttribute('aria-expanded','false');
+    });
+    if (shouldOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
+// 建築卡片展開筆記
+ document.querySelectorAll('.details-toggle').forEach(btn => btn.addEventListener('click', () => {
+  const card = btn.closest('.feature-card');
+  const expanded = card.classList.toggle('expanded');
+  btn.setAttribute('aria-expanded', String(expanded));
+  btn.firstChild.textContent = expanded ? '收合建築筆記' : '閱讀建築筆記';
+}));
+// 捲動淡入
+const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (entry.isIntersecting) { entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); }
+}), {threshold: .12});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+// 回到頂部按鈕
+const backTop = document.querySelector('.back-top');
+window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 500), {passive:true});
+backTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+// 圖片燈箱
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = lightbox.querySelector('img');
+function openLightbox(item) { const img = item.querySelector('img'); lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); document.body.style.overflow='hidden'; lightbox.querySelector('button').focus(); }
+function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow=''; lightboxImg.src=''; }
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => openLightbox(item));
+  item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(item); } });
+});
+lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
